@@ -1,5 +1,5 @@
 # Contact-thing
-# ADD NODE MODULES FOLDER IDFK WHY IT DOESNT UPLOAD I AM STUPID SRRY
+# ADD NODE MODULES FOLDER IN SERVER FOLDER IDFK WHY IT DOESNT UPLOAD I AM STUPID SRRY
 <br/>
 ## Used for sharing during presentation
 https://github.com/Genymobile/scrcpy/releases/tag/v3.2
