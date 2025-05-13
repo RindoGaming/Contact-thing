@@ -1,0 +1,9 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.profile {
+    padding: 10px;
+    padding-top: 20px;
+}
