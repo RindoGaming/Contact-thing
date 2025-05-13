@@ -10,7 +10,14 @@ await client.connect();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('../public'));
+app.use(express.static('../public', {
+    setHeaders: (res, path) => {
+        if (path.endsWith('manifest.json')) {
+            res.setHeader('Content-Type', 'application/manifest+json');
+            res.setHeader('Cache-Control', 'no-store');
+        }
+    }
+}))
 
 // Provide contacts through the API
 app.get('/api/contacts', async (req, res) => {

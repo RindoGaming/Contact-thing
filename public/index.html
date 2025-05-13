@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body>
-  <h1>contacts</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#9d5df0">
+  <meta name="description" content="PWA with MongoDB Example">
+  <title>PWA MongoDB Example</title>
 
-  <head>
-    <!-- Add this inside <head> in index.html -->
-    <script type="importmap">
+  <!-- PWA Meta -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="circle.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Add this inside <head> in index.html -->
+  <script type="importmap">
     {
       "imports": {
         "camera": "./js/camera.js"
@@ -14,35 +22,42 @@
     }
   </script>
 
-    <!-- Add this inside <body> in index.html -->
-<button id="find-me">Show my location</button><br />
-<p id="status"></p>
-<a id="map-link" target="_blank"></a>
+  <script type="module" src="./js/script.js"></script>
+</head>
+
+<body>
+  <h1>contacts</h1>
+
+
+  <!-- Add this inside <body> in index.html -->
+  <button id="find-me">Show my location</button><br />
+  <p id="status"></p>
+  <a id="map-link" target="_blank"></a>
 
 
 
-    <h2>Camera Preview</h2>
-    <button id="startCamera">Start Camera</button>
-    <button id="stopCamera">Stop Camera</button>
-    <video id="cameraFeed" autoplay playsinline></video>
-    <!-- Add after the video element -->
+  <h2>Camera Preview</h2>
+  <button id="startCamera">Start Camera</button>
+  <button id="stopCamera">Stop Camera</button>
+  <video id="cameraFeed" autoplay playsinline></video>
+  <!-- Add after the video element -->
 
-    <button id="takePhoto">Take Photo</button>
-    <canvas id="photoCanvas" width="160" height="120"></canvas>
+  <button id="takePhoto">Take Photo</button>
+  <canvas id="photoCanvas" width="160" height="120"></canvas>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#9d5df0">
-    <meta name="description" content="PWA with MongoDB Example">
-    <title>PWA MongoDB Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#9d5df0">
+  <meta name="description" content="PWA with MongoDB Example">
+  <title>PWA MongoDB Example</title>
 
-    <!-- PWA Meta -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="circle.svg">
-    <link rel="stylesheet" href="css/style.css">
+  <!-- PWA Meta -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="circle.svg">
+  <link rel="stylesheet" href="css/style.css">
 
-    <script type="module" src="js/script.js"></script>
+  <script type="module" src="js/script.js"></script>
   </head>
   <div id="profilesContainer"></div>
   <!-- Add inside <body>, above the contacts list -->
@@ -52,13 +67,13 @@
     <input type="submit" value="Add Contact" />
   </form>
 
-<template id="profileTemplate">
-  <div class="profile">
-    <img class="photo" alt="Profile Photo" />
-    <h2 class="name"></h2>
-    <h2 class="email"></h2>
-  </div>
-</template>
+  <template id="profileTemplate">
+    <div class="profile">
+      <img class="photo" alt="Profile Photo" />
+      <h2 class="name"></h2>
+      <h2 class="email"></h2>
+    </div>
+  </template>
 
 
 </body>
