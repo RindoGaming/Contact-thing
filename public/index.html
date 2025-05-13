@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <h1>PWA Profiles Example</h1>
+
+  <head>
+    <!-- Add this inside <head> in index.html -->
+    <script type="importmap">
+    {
+      "imports": {
+        "camera": "./js/camera.js"
+      }
+    }
+  </script>
+
+    <!-- Add this inside <body> in index.html -->
+
+    <h2>Camera Preview</h2>
+    <button id="startCamera">Start Camera</button>
+    <button id="stopCamera">Stop Camera</button>
+    <video id="cameraFeed" autoplay playsinline></video>
+    <!-- Add after the video element -->
+
+    <button id="takePhoto">Take Photo</button>
+    <canvas id="photoCanvas" width="160" height="120"></canvas>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#9d5df0">
+    <meta name="description" content="PWA with MongoDB Example">
+    <title>PWA MongoDB Example</title>
+
+    <!-- PWA Meta -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="circle.svg">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="module" src="js/script.js"></script>
+  </head>
+  <div id="profilesContainer"></div>
+  <!-- Add inside <body>, above the contacts list -->
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="submit" value="Add Contact" />
+  </form>
+
+<template id="profileTemplate">
+  <div class="profile">
+    <img class="photo" alt="Profile Photo" />
+    <h2 class="name"></h2>
+    <h2 class="email"></h2>
+  </div>
+</template>
+
+</body>
+
+</html>
