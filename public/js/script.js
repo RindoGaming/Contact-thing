@@ -112,7 +112,8 @@ function geoFindMe() {
     const longitude = position.coords.longitude;
 
     status.textContent = "";
-    mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+   
+    mapLink.href = ` https://www.google.com/maps/@${latitude},${longitude},100m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D`;
     mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
   }
 
@@ -128,4 +129,9 @@ function geoFindMe() {
   }
 }
 
+
+
 document.querySelector("#find-me").addEventListener("click", geoFindMe);
+
+
+
