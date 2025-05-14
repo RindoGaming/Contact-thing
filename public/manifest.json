@@ -8,12 +8,12 @@
   "theme_color": "#33ff9c",
   "icons": [
     {
-      "src": "mapsvg.svg",
+      "src": "svglogobutbetter.svg",
       "sizes": "any",
       "purpose": "any maskable"
     },
     {
-      "src": "mapico2.ico",
+      "src": "icologobutbetter.ico",
       "sizes": "32x32 128x128"
     }
   ]
