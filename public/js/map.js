@@ -1,11 +1,17 @@
+// Initialize the map
+const map = L.map('map').setView([52.5189853, 4.9728117], 9); // Example coordinates and zoom level
+
+// Add a tile layer to the map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
 // Fetch data from the database and add markers to the map
 fetch('/api/contacts')
     .then((response) => response.json())
     .then((contacts) => {
         contacts.forEach((contact) => {
-            // Check if the contact has valid latitude and longitude
             if (contact.latitude && contact.longitude) {
-                // Add a marker to the map
                 L.marker([contact.latitude, contact.longitude])
                     .bindTooltip(`${contact.name}`, {
                         direction: 'top',
