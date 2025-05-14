@@ -36,3 +36,7 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+form {
+    margin: 30px;
+}
