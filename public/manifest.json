@@ -1,19 +1,19 @@
 {
-  "name": "PWA MongoDB Example",
-  "short_name": "PWA Demo",
-  "description": "An example PWA with MongoDB integration",
+  "name": "Contact Tracker",
+  "short_name": "Contact Track",
+  "description": "A simple contact tracker app",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f6f2ea",
-  "theme_color": "#9d5df0",
+  "theme_color": "#33ff9c",
   "icons": [
     {
-      "src": "circle.svg",
+      "src": "mapsvg.svg",
       "sizes": "any",
       "purpose": "any maskable"
     },
     {
-      "src": "favicon.ico",
+      "src": "mapico2.ico",
       "sizes": "32x32 128x128"
     }
   ]
