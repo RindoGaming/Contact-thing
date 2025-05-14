@@ -109,6 +109,8 @@ contactForm.addEventListener('submit', async (event) => {
 function geoFindMe() {
   const status = document.querySelector("#status");
   const mapLink = document.querySelector("#map-link");
+  const latInput = document.querySelector('input[name="latitude"]');
+  const lonInput = document.querySelector('input[name="longitude"]');
 
   mapLink.href = "";
   mapLink.textContent = "";
@@ -118,9 +120,13 @@ function geoFindMe() {
     const longitude = position.coords.longitude;
 
     status.textContent = "";
-   
+
     mapLink.href = ` https://www.google.com/maps/@${latitude},${longitude},100m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D`;
     mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+
+    // Set the values in the form fields
+    if (latInput) latInput.value = latitude;
+    if (lonInput) lonInput.value = longitude;
   }
 
   function error() {
