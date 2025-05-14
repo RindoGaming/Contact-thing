@@ -73,6 +73,8 @@ fetch('/api/contacts')
       clone.querySelector('.name').textContent = contact.name;
       clone.querySelector('.email').textContent = contact.email;
       clone.querySelector('.photo').src = contact.photo ?? '';
+      clone.querySelector('.latitude').textContent = contact.latitude;
+      clone.querySelector('.longitude').textContent = contact.longitude;
       profilesContainer.appendChild(clone);
     });
   });
@@ -94,6 +96,8 @@ contactForm.addEventListener('submit', async (event) => {
         body: JSON.stringify({
             name: formData.get('name'),
             email: formData.get('email'),
+            latitude: formData.get('latitude'),
+            longitude: formData.get('longitude'),
             photo: imageData
         })
     });

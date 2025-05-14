@@ -74,8 +74,10 @@
   <video id="cameraFeed" autoplay playsinline></video>
   <canvas id="photoCanvas" width="160" height="120"></canvas>
   <form id="contactForm">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
+    <input type="text" name="name" placeholder="Name" required/>
+    <input type="email" name="email" placeholder="Email" required/>
+    <input type="text" name="latitude" placeholder="Latitude" required/>
+    <input type="text" name="longitude" placeholder="Longitude" required/>
     <input type="submit" value="Add Contact" />
   </form>
   <div id="profilesContainer"></div>
@@ -86,6 +88,13 @@
       <img class="photo" alt="Profile Photo" />
       <h2 class="name"></h2>
       <h2 class="email"></h2>
+      <div class="location">
+        <p>Latitude:</p>
+        <p class="latitude"></p>
+        <p class="space-location">Longitude:</p>
+        <p class="longitude"></p>
+      </div>
+      
     </div>
   </template>
 
