@@ -18,14 +18,19 @@ const videoElement = document.getElementById('cameraFeed');
 const startButton = document.getElementById('startCamera');
 const stopButton = document.getElementById('stopCamera');
 
+// Hide camera by default
+videoElement.style.display = "none";
+
 startButton.addEventListener('click', async () => {
     videoElement.srcObject = await camera.getStream();
     videoElement.play();
+    videoElement.style.display = "block"; // Show camera when started
 });
 
 stopButton.addEventListener('click', () => {
     camera.stopStream();
     videoElement.srcObject = null;
+    videoElement.style.display = "none"; // Hide camera when stopped
 });
 
 
