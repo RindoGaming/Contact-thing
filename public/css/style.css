@@ -12,3 +12,8 @@ h1 {
     padding: 10px;
     padding-top: 20px;
 }
+
+#campre {
+    display: flex;
+    justify-content: center;
+}
