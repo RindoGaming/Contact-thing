@@ -53,7 +53,7 @@
             { text: 'Building 15', latlng: [36.680448, 3.253714], },
         ];
 
-        for(var i = 0; i<=marks.length; i++) {
+        for(var i = 0; i < marks.length; i++) {
             L.marker(marks[i].latlng)
                 .bindTooltip(marks[i].text, {
                     direction: 'top',

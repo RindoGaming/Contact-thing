@@ -1,5 +1,5 @@
 console.log('javascript loaded');
-import Camera from 'camera';
+import Camera from "./camera.js";
 // Register service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -100,17 +100,6 @@ contactForm.addEventListener('submit', async (event) => {
 });
 
 
-let map;
-
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
-
 
 
 function geoFindMe() {
@@ -141,7 +130,6 @@ function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 }
-initMap();
 
 
 document.querySelector("#find-me").addEventListener("click", geoFindMe);

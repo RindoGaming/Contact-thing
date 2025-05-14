@@ -19,16 +19,22 @@ const networkFirst = async (request) => {
     if (navigator.onLine) {
         try {
             const responseFromNetwork = await fetch(request);
-            putInCache(request, responseFromNetwork.clone());
+            // Only cache GET requests
+            if (request.method === "GET") {
+                putInCache(request, responseFromNetwork.clone());
+            }
             return responseFromNetwork;
         } catch (e) {
             console.warn("[Service Worker] Network error, falling back to cache");
         }
     }
 
-    const responseFromCache = await caches.match(request);
-    if (responseFromCache) {
-        return responseFromCache;
+    // Only try to match cache for GET requests
+    if (request.method === "GET") {
+        const responseFromCache = await caches.match(request);
+        if (responseFromCache) {
+            return responseFromCache;
+        }
     }
 
     return new Response("Network error happened", {
