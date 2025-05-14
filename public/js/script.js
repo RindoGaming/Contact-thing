@@ -72,7 +72,7 @@ fetch('/api/contacts')
       const clone = profileTemplate.content.cloneNode(true);
       clone.querySelector('.name').textContent = contact.name;
       clone.querySelector('.email').textContent = contact.email;
-      clone.querySelector('.photo').src = contact.photo ?? ''; // fallback to empty if none
+      clone.querySelector('.photo').src = contact.photo ?? '';
       profilesContainer.appendChild(clone);
     });
   });
