@@ -17,3 +17,8 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+#cameraFeed {
+    width: 400px;
+    height: 300px;
+}
