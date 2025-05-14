@@ -135,5 +135,34 @@ function geoFindMe() {
   }
 }
 
+window.addEventListener('DOMContentLoaded', () => {
+    // Leaflet map setup
+    var map = L.map('map', {
+        center: [52.5189853, 4.9728117],
+        zoom: 9,
+    });
+
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: ['a', 'b', 'c']
+    }).addTo(map);
+
+    var marks = [
+        { text: 'Bit Academy', latlng: [52.5189853, 4.9728117], },
+        { text: 'Building 233', latlng: [36.728217, 3.205652], },
+        { text: 'Building 45', latlng: [36.728217, 3.305652], },
+        { text: 'Building 15', latlng: [36.680448, 3.253714], },
+    ];
+
+    for (var i = 0; i < marks.length; i++) {
+        L.marker(marks[i].latlng)
+            .bindTooltip(marks[i].text, {
+                direction: 'top',
+                sticky: false,
+                offset: [0, -15],
+            })
+            .addTo(map);
+    }
+});
 
 document.querySelector("#find-me").addEventListener("click", geoFindMe);
