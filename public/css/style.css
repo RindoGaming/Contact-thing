@@ -30,3 +30,9 @@ h1 {
 .space-location {
     margin-left: 10px;
 }
+
+#profilesContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
