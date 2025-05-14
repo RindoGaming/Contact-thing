@@ -1,5 +1,5 @@
 body {
-    background-color: #d9f1e6;
+    background-color: #2DE089;
     font-family: Arial, sans-serif;
 }
 
@@ -16,4 +16,9 @@ h1 {
 #campre {
     display: flex;
     justify-content: center;
+}
+
+#cameraFeed {
+    width: 400px;
+    height: 300px;
 }
