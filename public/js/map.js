@@ -55,3 +55,36 @@ fetch('/api/contacts')
     .catch((error) => {
         console.error('Error fetching contacts:', error);
     });
+
+const pickLocationBtn = document.getElementById('pickLocation');
+let pickingLocation = false;
+let tempMarker = null;
+
+if (pickLocationBtn) {
+    pickLocationBtn.addEventListener('click', () => {
+        pickingLocation = true;
+        pickLocationBtn.textContent = "Click on the map…";
+        map.getContainer().style.cursor = "crosshair";
+    });
+
+    map.on('click', function(e) {
+        if (!pickingLocation) return;
+        pickingLocation = false;
+        pickLocationBtn.textContent = "Pick Location on Map";
+        map.getContainer().style.cursor = "";
+
+        // Remove previous temp marker if exists
+        if (tempMarker) {
+            map.removeLayer(tempMarker);
+        }
+
+        // Place a marker at the clicked location
+        tempMarker = L.marker(e.latlng).addTo(map);
+
+        // Set the form fields
+        const latInput = document.querySelector('input[name="latitude"]');
+        const lngInput = document.querySelector('input[name="longitude"]');
+        if (latInput) latInput.value = e.latlng.lat.toFixed(6);
+        if (lngInput) lngInput.value = e.latlng.lng.toFixed(6);
+    });
+}
