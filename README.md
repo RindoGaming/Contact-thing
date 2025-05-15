@@ -10,8 +10,6 @@ https://github.com/Genymobile/scrcpy/blob/master/doc/windows.md#run
 
 <br/>
 
-big boy
-
 
 
 
