@@ -114,3 +114,11 @@ form canvas {
     width: 100%;
     margin-bottom: 1rem;
 }
+
+#map-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #007bff;
+    text-decoration: none;
+}
