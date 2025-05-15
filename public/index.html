@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#9d5df0">
+  <meta name="theme-color" content="#33ff9c">
   <meta name="description" content="PWA with MongoDB Example">
-  <title>canatct map</title>
+  <title>Contact Tracker</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="circle.svg">
+  <link rel="icon" type="image/x-icon" href="icologobutbetter.ico">
+  <link rel="apple-touch-icon" href="svglogobutbetter.svg">
   <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css">
-    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js'></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <script type="module" src="./js/script.js"></script>
-  <title>PWA MongoDB Example</title>
+  <script type="module" src="./js/map.js"></script>
   <script type="importmap">
     {
       "imports": {
@@ -24,7 +24,7 @@
     }
   </script>
 
- 
+
 </head>
 
 <body>
@@ -35,34 +35,7 @@
 
 
 
-  <div id="map" style="height: 700px; border: 1px solid #AAA;"></div>
-      <script type="text/javascript">
-        var map = L.map( 'map', {
-            center: [36.7046887, 3.2317183],
-            zoom: 9,
-        });
-
-         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-             subdomains: ['a','b','c']
-        }).addTo(map);
-        var marks = [
-            { text: 'Building 135', latlng: [36.728217, 3.105652], },
-            { text: 'Building 233', latlng: [36.728217, 3.205652], },
-            { text: 'Building 45', latlng: [36.728217, 3.305652], },
-            { text: 'Building 15', latlng: [36.680448, 3.253714], },
-        ];
-
-        for(var i = 0; i < marks.length; i++) {
-            L.marker(marks[i].latlng)
-                .bindTooltip(marks[i].text, {
-                    direction: 'top',
-                    sticky: false,
-                    offset: [0, -15],
-                })
-                .addTo(map);
-        }
-    </script>
+  <div id="map" style="height: 400px; width: 400px; border: 1px solid #AAA;"></div>
 
   <button id="find-me">Show my location</button><br />
   <p id="status"></p>
@@ -71,23 +44,31 @@
   <h2 id="campre">Camera Preview</h2>
   <button id="startCamera">Start Camera</button>
   <button id="stopCamera">Stop Camera</button>
-  <video id="cameraFeed" autoplay playsinline></video>
-
   <button id="takePhoto">Take Photo</button>
-  <canvas id="photoCanvas" width="160" height="120"></canvas>
-
-  <div id="profilesContainer"></div>
+  <video id="cameraFeed" autoplay playsinline></video>
   <form id="contactForm">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
+    <input type="text" name="name" placeholder="Name" required/>
+    <input type="email" name="email" placeholder="Email" required/>
+    <input type="text" name="latitude" placeholder="Latitude" required maxlength="12"/>
+    <input type="text" name="longitude" placeholder="Longitude" required maxlength="12"/>
+    <canvas id="photoCanvas" width="160" height="120"></canvas>
     <input type="submit" value="Add Contact" />
   </form>
+  <div id="profilesContainer"></div>
+
 
   <template id="profileTemplate">
     <div class="profile">
       <img class="photo" alt="Profile Photo" />
       <h2 class="name"></h2>
       <h2 class="email"></h2>
+      <div class="location">
+        <p>Latitude:</p>
+        <p class="latitude"></p>
+        <p class="space-location">Longitude:</p>
+        <p class="longitude"></p>
+      </div>
+      
     </div>
   </template>
 
