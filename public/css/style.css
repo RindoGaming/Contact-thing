@@ -1,6 +1,9 @@
 body {
     background-color: #c5f3dd;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -34,11 +37,65 @@ h1 {
 }
 
 form {
-    margin: 30px;
+    margin: 30px auto;
+    padding: 24px 32px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    padding: 10px 12px;
+    border: 1px solid #b2dfdb;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+    border-color: #33cc99;
+    outline: none;
+}
+
+form input[type="submit"] {
+    background: #33cc99;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+form input[type="submit"]:hover {
+    background: #28a97a;
+}
+
+form canvas {
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid #b2dfdb;
+    background: #f8f8f8;
 }
 
 #map {
-display: flex;
+    max-width: 100vw;
+    height: 400px;
+    width: 400px;
+    border: 1px solid #cff793;
+}
+
+.map-center {
+    display: flex;
     justify-content: center;
     margin-top: 20px;
 }
@@ -48,4 +105,20 @@ display: flex;
     object-fit: cover;
     border: 2px solid #fff;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Optional: adds space between buttons */
+    margin-bottom: 1rem;
+}
+
+.video-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
 }
