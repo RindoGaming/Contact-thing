@@ -46,6 +46,7 @@
     <button id="find-me">Show my location</button>
     <button id="startCamera">Start Camera</button>
     <button id="stopCamera">Stop Camera</button>
+    <button id="takePhoto">Take Photo</button>
   </div>
   <p id="status"></p>
   <a id="map-link" target="_blank"></a>
@@ -56,11 +57,10 @@
   </div>
   <form id="contactForm">
     <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
+    <input type="email" name="email" placeholder="Email" required maxlength="320"/>
     <input type="text" name="latitude" placeholder="Latitude" required maxlength="12" />
     <input type="text" name="longitude" placeholder="Longitude" required maxlength="12" />
     <canvas id="photoCanvas" width="160" height="120"></canvas>
-    <button id="takePhoto">Take Photo</button>
     <input type="submit" value="Add Contact" />
   </form>
   <div id="profilesContainer"></div>
@@ -72,12 +72,12 @@
       <h2 class="name"></h2>
       <h2 class="email"></h2>
       <div class="location">
-        <span class="coords">
-          <span class="lat-label">Lat:</span> <span class="latitude"></span>
-          <span class="lng-label" style="margin-left: 10px;">Lng:</span> <span class="longitude"></span>
-        </span>
+        <p class="latitude"></p>
+        <p class="space-location"></p>
+        <p class="longitude"></p>
         <p class="distance"></p>
       </div>
+
     </div>
   </template>
 
