@@ -1,6 +1,15 @@
 // Initialize the map
 const map = L.map('map').setView([52.5189853, 4.9728117], 9); // Example coordinates and zoom level
 
+// Prevent infinite scrolling
+map.setMaxBounds([
+    [-90, -180], // Southwest coordinates
+    [90, 180]    // Northeast coordinates
+]);
+map.on('drag', function() {
+    map.panInsideBounds(map.options.maxBounds, { animate: false });
+});
+
 // Add a tile layer to the map
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
