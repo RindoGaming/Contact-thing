@@ -11,8 +11,8 @@
   <link rel="icon" type="image/x-icon" href="icologobutbetter.ico">
   <link rel="apple-touch-icon" href="svglogobutbetter.svg">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../leaflet/leaflet.css" />
-  <script src="../leaflet/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <script type="module" src="./js/script.js"></script>
   <script type="module" src="./js/map.js"></script>
@@ -47,10 +47,10 @@
   <button id="takePhoto">Take Photo</button>
   <video id="cameraFeed" autoplay playsinline></video>
   <form id="contactForm">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <input type="text" name="latitude" placeholder="Latitude" required maxlength="12" />
-    <input type="text" name="longitude" placeholder="Longitude" required maxlength="12" />
+    <input type="text" name="name" placeholder="Name" required/>
+    <input type="email" name="email" placeholder="Email" required/>
+    <input type="text" name="latitude" placeholder="Latitude" required maxlength="12"/>
+    <input type="text" name="longitude" placeholder="Longitude" required maxlength="12"/>
     <canvas id="photoCanvas" width="160" height="120"></canvas>
     <input type="submit" value="Add Contact" />
   </form>
@@ -68,7 +68,7 @@
         <p class="space-location">Longitude:</p>
         <p class="longitude"></p>
       </div>
-
+      
     </div>
   </template>
 
