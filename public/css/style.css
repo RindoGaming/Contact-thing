@@ -218,3 +218,12 @@ button {
 .latlng-link:hover {
     text-decoration: underline;
 }
+
+.photo-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.adding {
+    width: 230px;
+}

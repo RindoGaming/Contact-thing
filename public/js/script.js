@@ -39,6 +39,34 @@ const takePhotoButton = document.getElementById('takePhoto');
 const canvas = document.getElementById('photoCanvas');
 const context = canvas.getContext('2d');
 
+let imageData = null; // Store the image data (from camera or upload)
+
+const uploadInput = document.getElementById('uploadPhoto');
+const uploadBtn = document.getElementById('uploadPhotoBtn');
+
+uploadBtn.addEventListener('click', () => {
+    uploadInput.click(); // This opens the file picker
+});
+
+uploadInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        imageData = e.target.result;
+        drawImage(imageData);
+        localStorage.setItem('savedPhoto', imageData);
+    };
+    reader.readAsDataURL(file);
+});
+
+// Update take photo button to set imageData
+takePhotoButton.addEventListener('click', () => {
+    context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+    imageData = canvas.toDataURL('image/png');
+    localStorage.setItem('savedPhoto', imageData);
+});
+
 // Capture and store image
 takePhotoButton.addEventListener('click', () => {
     context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
@@ -64,6 +92,7 @@ const drawImage = async (imageData) => {
 // On page load, restore image if available
 const savedImage = localStorage.getItem('savedPhoto');
 if (savedImage) {
+    imageData = savedImage;
     drawImage(savedImage);
 }
 
@@ -111,8 +140,11 @@ contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    // Get image from canvas
-    const imageData = canvas.toDataURL('image/jpeg', 0.5); // compress to reduce size
+    // Require a photo (from camera or upload)
+    if (!imageData) {
+        alert("Please add a photo using the camera or upload before submitting.");
+        return;
+    }
 
     await fetch('/api/contacts', {
         method: 'POST',

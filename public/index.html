@@ -60,8 +60,13 @@
     <input type="text" name="latitude" placeholder="Latitude" required maxlength="12" />
     <input type="text" name="longitude" placeholder="Longitude" required maxlength="12" />
     <canvas id="photoCanvas" width="160" height="120"></canvas>
-    <button id="takePhoto">Take Photo</button>
-    <input type="submit" value="Add Contact" />
+    <div class="photo-buttons">
+      <input type="file" id="uploadPhoto" accept="image/*" style="display:none;" />
+      <button type="button" id="uploadPhotoBtn">Upload Photo</button>
+      <button type="button" id="takePhoto">Take Photo</button>
+    </div>
+    
+    <input class="adding" type="submit" value="Add Contact" />
   </form>
   <div id="profilesContainer"></div>
 
