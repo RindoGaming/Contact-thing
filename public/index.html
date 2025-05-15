@@ -39,15 +39,19 @@
     <div id="map" style="height: 400px; width: 400px; border: 1px solid #cff793;"></div>
   </div>
 
-  <button id="find-me">Show my location</button><br />
+  <div class="button-row">
+    <button id="find-me">Show my location</button>
+    <button id="startCamera">Start Camera</button>
+    <button id="stopCamera">Stop Camera</button>
+    <button id="takePhoto">Take Photo</button>
+  </div>
   <p id="status"></p>
   <a id="map-link" target="_blank"></a>
 
   <h2 id="campre">Camera Preview</h2>
-  <button id="startCamera">Start Camera</button>
-  <button id="stopCamera">Stop Camera</button>
-  <button id="takePhoto">Take Photo</button>
-  <video id="cameraFeed" autoplay playsinline></video>
+  <div class="video-center">
+    <video id="cameraFeed" autoplay playsinline></video>
+  </div>
   <form id="contactForm">
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
