@@ -12,8 +12,64 @@ h1 {
 }
 
 .profile {
-    padding: 10px;
-    padding-top: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 20px 24px;
+    max-width: 250px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    transition: box-shadow 0.2s;
+}
+
+.profile:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.profile img.photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    border: 2px solid #33cc99;
+}
+
+.profile .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #33cc99;
+}
+
+.profile .email {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.profile .location {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.profile .coords {
+    font-size: 0.95rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.profile .lat-label,
+.profile .lng-label {
+    font-weight: bold;
+    color: #33cc99;
 }
 
 #campre {
@@ -32,8 +88,10 @@ h1 {
 
 #profilesContainer {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 2rem 0;
 }
 
 form {
