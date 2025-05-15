@@ -85,6 +85,7 @@ fetch('/api/contacts')
         latLngLink.href = `https://www.google.com/maps?q=${contact.latitude},${contact.longitude}`;
         latLngLink.target = "_blank";
         latLngLink.textContent = `Latitude: ${contact.latitude}°, Longitude: ${contact.longitude}°`;
+        latLngLink.className = "latlng-link";
 
         // Replace the latitude and longitude elements with the link
         const latitudeElem = clone.querySelector('.latitude');
