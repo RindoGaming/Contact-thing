@@ -137,9 +137,12 @@ form input[type="submit"] {
 form canvas {
     margin: 0 auto;
     display: block;
-    border-radius: 6px;
     border: 1px solid #b2dfdb;
     background: #f8f8f8;
+    border-radius: 50%;
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
 }
 
 #map {
