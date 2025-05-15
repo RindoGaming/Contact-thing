@@ -12,7 +12,7 @@ h1 {
 }
 
 .profile {
-    background: #fff;
+    background: #f0fff7;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     padding: 20px 24px;
@@ -97,7 +97,7 @@ h1 {
 form {
     margin: 30px auto;
     padding: 24px 32px;
-    background: #fff;
+    background: #f0fff7;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     max-width: 400px;
@@ -130,11 +130,8 @@ form input[type="submit"] {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
-}
-
-form input[type="submit"]:hover {
-    background: #28a97a;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 form canvas {
@@ -170,7 +167,7 @@ form canvas {
 .button-row {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Optional: adds space between buttons */
+    gap: 10px;
     margin-bottom: 1rem;
 }
 
@@ -187,4 +184,24 @@ form canvas {
     margin-top: 1rem;
     color: #007bff;
     text-decoration: none;
+}
+
+button {
+    margin: 10px;
+    background: #33cc99;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#contactForm {
+  align-items: center;
+}
+#contactForm button#takePhoto {
+  margin-bottom: 10px;
 }
