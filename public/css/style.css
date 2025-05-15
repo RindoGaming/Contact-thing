@@ -23,10 +23,6 @@ h1 {
     height: 300px;
 }
 
-.location {
-    display: flex;
-    flex-direction: row;
-}
 .space-location {
     margin-left: 10px;
 }
