@@ -68,7 +68,7 @@ A Progressive Web App (PWA) for creating, viewing, and sharing contacts with geo
 ## Project Structure
 
 <br/>
-## Used for sharing during presentation
+Used for sharing during presentation
 <br/>
 https://github.com/Genymobile/scrcpy/releases/tag/v3.2
 <br/>
