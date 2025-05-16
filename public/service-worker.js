@@ -20,7 +20,6 @@ const networkFirst = async (request) => {
     if (navigator.onLine) {
         try {
             const responseFromNetwork = await fetch(request);
-            // Only cache GET requests
             if (request.method === "GET") {
                 putInCache(request, responseFromNetwork.clone());
             }
@@ -30,7 +29,6 @@ const networkFirst = async (request) => {
         }
     }
 
-    // Only try to match cache for GET requests
     if (request.method === "GET") {
         const responseFromCache = await caches.match(request);
         if (responseFromCache) {
@@ -44,12 +42,10 @@ const networkFirst = async (request) => {
     });
 };
 
-// Listen for fetch events
 self.addEventListener("fetch", (event) => {
     event.respondWith(networkFirst(event.request));
 });
 
-// Pre-cache assets during install
 self.addEventListener("install", (event) => {
     const preCache = async () => {
         const cache = await caches.open(CACHE_NAME);

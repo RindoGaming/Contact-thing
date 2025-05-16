@@ -18,34 +18,31 @@ const videoElement = document.getElementById('cameraFeed');
 const startButton = document.getElementById('startCamera');
 const stopButton = document.getElementById('stopCamera');
 
-// Hide camera by default
 videoElement.style.display = "none";
 
 startButton.addEventListener('click', async () => {
     videoElement.srcObject = await camera.getStream();
     videoElement.play();
-    videoElement.style.display = "block"; // Show camera when started
+    videoElement.style.display = "block";
 });
 
 stopButton.addEventListener('click', () => {
     camera.stopStream();
     videoElement.srcObject = null;
-    videoElement.style.display = "none"; // Hide camera when stopped
+    videoElement.style.display = "none";
 });
 
-
-// Get DOM elements
 const takePhotoButton = document.getElementById('takePhoto');
 const canvas = document.getElementById('photoCanvas');
 const context = canvas.getContext('2d');
 
-let imageData = null; // Store the image data (from camera or upload)
+let imageData = null;
 
 const uploadInput = document.getElementById('uploadPhoto');
 const uploadBtn = document.getElementById('uploadPhotoBtn');
 
 uploadBtn.addEventListener('click', () => {
-    uploadInput.click(); // This opens the file picker
+    uploadInput.click();
 });
 
 uploadInput.addEventListener('change', (event) => {
@@ -67,11 +64,9 @@ takePhotoButton.addEventListener('click', () => {
     localStorage.setItem('savedPhoto', imageData);
 });
 
-// Capture and store image
 takePhotoButton.addEventListener('click', () => {
     context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
 
-    // Save canvas content as image in localStorage
     const imageData = canvas.toDataURL('image/png');
     localStorage.setItem('savedPhoto', imageData);
 });
@@ -82,14 +77,13 @@ const drawImage = async (imageData) => {
     try {
         const img = new Image();
         img.src = imageData;
-        await img.decode(); // Waits for the image to be decoded
+        await img.decode();
         context.drawImage(img, 0, 0, canvas.width, canvas.height);
     } catch (err) {
         console.error("Error decoding or drawing image:", err);
     }
 };
 
-// On page load, restore image if available
 const savedImage = localStorage.getItem('savedPhoto');
 if (savedImage) {
     imageData = savedImage;
@@ -116,16 +110,14 @@ fetch('/api/contacts')
         latLngLink.textContent = `Latitude: ${contact.latitude}°, Longitude: ${contact.longitude}°`;
         latLngLink.className = "latlng-link";
 
-        // Replace the latitude and longitude elements with the link
         const latitudeElem = clone.querySelector('.latitude');
         const longitudeElem = clone.querySelector('.longitude');
         latitudeElem.replaceWith(latLngLink);
-        longitudeElem.remove(); // Remove the old longitude element
-        // Optionally, remove the "Longitude:" label if you want
+        longitudeElem.remove();
+
         const spaceLocationElem = clone.querySelector('.space-location');
         if (spaceLocationElem) spaceLocationElem.remove();
       } else {
-        // Fallback if no lat/lon
         clone.querySelector('.latitude').textContent = contact.latitude ?? '';
         clone.querySelector('.longitude').textContent = contact.longitude ?? '';
       }
@@ -140,7 +132,6 @@ contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    // Require a photo (from camera or upload)
     if (!imageData) {
         alert("Please add a photo using the camera or upload before submitting.");
         return;
@@ -160,7 +151,6 @@ contactForm.addEventListener('submit', async (event) => {
         })
     });
 
-    // Refresh the page after adding a contact
     location.reload();
 });
 
@@ -198,13 +188,11 @@ function geoFindMe() {
     mapLink.href = ` https://www.google.com/maps/@${latitude},${longitude},100m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D`;
     mapLink.textContent = `${latitude}°, ${longitude} °`;
 
-    // Set the values in the form fields
     if (latInput) latInput.value = latitude;
     if (lonInput) lonInput.value = longitude;
 
     // Calculate and display distances for each profile
     document.querySelectorAll('.profile').forEach(profile => {
-      // Try to get lat/lon from the link or fallback to text
       const latLngLink = profile.querySelector('a[href^="https://www.google.com/maps?q="]');
       let contactLat, contactLon;
       if (latLngLink) {
@@ -245,7 +233,6 @@ function geoFindMe() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Leaflet map setup
     var map = L.map('map', {
         center: [52.5189853, 4.9728117],
         zoom: 9,
@@ -258,9 +245,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var marks = [
         { text: 'Bit Academy', latlng: [52.5189853, 4.9728117], },
-        { text: 'Building 233', latlng: [36.728217, 3.205652], },
-        { text: 'Building 45', latlng: [36.728217, 3.305652], },
-        { text: 'Building 15', latlng: [36.680448, 3.253714], },
     ];
 
     for (var i = 0; i < marks.length; i++) {
